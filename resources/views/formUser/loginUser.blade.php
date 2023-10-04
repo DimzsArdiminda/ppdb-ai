@@ -1,37 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+@extends('layout.form-user')
 
-    {{-- bootstrap --}}
-    <link rel="stylesheet" href="{{ asset('asset/bootstrap/css/bootstrap.css') }}">
-    <script src="{{ asset('asset/bootstrap/js/bootstrap.js') }}"></script>
-
-    {{-- logo --}}
-    <link rel="icon" href="{{ asset('asset/img/logo/logo.png') }}">
-
-    {{-- animate css --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-    {{-- sweet alert --}}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <title>Pendaftaran - Akun Baru</title>
-
-    <script>
-        function togglePassword() {
-            var passwordInput = document.getElementById("password");
-            var toggleCheckbox = document.getElementById("togglePassword");
-
-            passwordInput.type = toggleCheckbox.checked ? "text" : "password";
-        }
-    </script>
-</head>
-
-<body style="background-color: darkgray">
+@section('title', 'Login User')
+@section('konten')
     <div class="container">
         <div class="contaner mt-5">
             <div class="row">
@@ -69,6 +40,5 @@
             </div>
         </div>
     </div>
-</body>
+@endsection
 
-</html>

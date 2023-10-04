@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.form-user')
+@section('title', 'Akun Baru')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    {{-- bootstrap --}}
-    <link rel="stylesheet" href="{{ asset('asset/bootstrap/css/bootstrap.css') }}">
-    <script src="asset/bootstrap/js/bootstrap.js"></script>
-
-    {{-- logo --}}
-    <link rel="icon" href="{{ asset('asset/img/logo/logo.png') }}">
-
-    {{-- animate css --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-    {{-- sewett alert --}}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <title>Pendaftaran - Akun Baru</title>
-</head>
-
-<body style="background-color: darkgray">
+@section('konten')
     <div class="container">
         <div class="contaner mt-5">
             <form action="{{ url('kirim-data-user-baru') }}" method="post"  onsubmit="return validatePassword()">
@@ -88,20 +67,4 @@
             </form>
         </div>
     </div>
-    <script>
-        function validatePassword() {
-            var pas = document.getElementById("password1").value
-            var pas2 = document.getElementById("password2").value
-
-            if (pas2 != pas) {
-                alert("Password dan Konfirmasi Password tidak cocok!");
-                return false
-            }
-
-            return true
-        }
-    </script>
-</body>
-
-
-</html>
+@endsection

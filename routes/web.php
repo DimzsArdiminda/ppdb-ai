@@ -57,16 +57,34 @@ Route::prefix('PPDB')->group(function () {
 
 Route::prefix('Pendaftaran')->group(function () {
     // akun baru
-    Route::get('Pendaftar-Baru', function () {
+    Route::get('Akun-Baru', function () {
         return view('formUser.pendaftaran');
     });
 
     // login
-    Route::get('Login', function () {
+    Route::get('login', function () {
         return view('formUser.loginUser');
     });
+
+    // reset
+    Route::get('reset-akun', function () {
+        return view('formUser.reset-sandi');
+    });
+
+
 });
 
+Route::prefix('admin')->group(function () {
+    // akun baru
+    Route::get('daftar-akun', function () {
+        return view('admin.dashboard');
+    });
+
+    // login
+    Route::get('daftar-ppdb', function () {
+        return view('admin.PPDB');
+    });
+});
 
 // from controller
 include 'fromController.php';
