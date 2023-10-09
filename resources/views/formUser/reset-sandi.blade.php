@@ -10,6 +10,7 @@
             <div class="text-center">
                 <h4>Reset Sandi</h4>
                 <small>Silahkan masukan email anda dan tanggal lahir</small>
+                <br><a href="{{ url('/') }}" class="btn btn-info mb-3">kembali ke awal</a>
             </div>
             {{-- box --}}
             <div class="row bg-transparent">

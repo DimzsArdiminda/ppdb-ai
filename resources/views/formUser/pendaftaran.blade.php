@@ -10,6 +10,7 @@
                     <div class="text-center">
                         <h4>Selamat Datang</h4>
                         <small>Silahkan masukkan data diri Anda</small>
+                        <br><a href="{{ url('/') }}" class="btn btn-info">kembali ke awal</a>
                     </div>
                     {{-- pengisian pertama --}}
                     <div class="col-sm-5 mx-auto">

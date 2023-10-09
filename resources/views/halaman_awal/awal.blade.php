@@ -29,7 +29,7 @@
 }
     </style>
 </head>
-<body>
+<body style="background-color: darkgrey">
     <div class="container">
         <div class="container mb-5">
             <div class="container mt-5 text-center" style="font-family: 'Times New Roman', Times, serif;">
@@ -58,8 +58,8 @@
                     <div class="col-sm-3 col-md-4 col-xl-3">
                     </div>
                     <div class="col-sm-2 col-md-4 col-xl-3">
-                        <button class="btn btn-outline-dark "> Daftar </button>
-                        <button class="btn btn-outline-dark" onclick="window.location.href='/pendaftran'">Masuk</button>
+                        <a  class="btn btn-secondary" href="{{ url('Pendaftaran/Akun-Baru') }}"> Daftar </a>
+                        <a href="{{ url('Pendaftaran/login') }}" class="btn btn-primary" >Masuk</a>
                     </div>
                     <div class="col-sm-3 col-md-4 col-xl-3">
                     </div>

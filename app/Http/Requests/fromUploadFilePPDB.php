@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class fromPPDBReq extends FormRequest
+class fromUploadFilePPDB extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,13 +22,11 @@ class fromPPDBReq extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => 'required',
-            'nisn' => 'required',
-            'asal_sekolah' => 'required',
-            'alamat' => 'required',
-            'no_hp' => 'required',
-            'jurusan' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'Ijazah' => 'required|file|mimes:pdf|max:3000',
+            'foto' => 'required|image|mimes:jpeg,png,jpg|max:3000',
+            'prestasi' => 'file|mimes:pdf|max:3000',
+            'KK' => 'required|file|mimes:pdf|max:3000',
+            'KTP' => 'required|file|mimes:pdf|max:3000',
         ];
     }
 }

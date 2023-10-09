@@ -3,9 +3,10 @@
 @section('konten')
 <div class="container">
     <div class="container">
-        <div class="row mt-5 d-flex justify-content-center">
+        <div class="row mt-5 d-flex mb-5 justify-content-center">
             <div class="col-sm-6">
-                <form action="" method="post">
+                <form action="{{ url('/upload-file') }}" method="post">
+                    @csrf
                     {{-- scan ijazah --}}
                     <div class="input-group">
                         <div class="mb-3">
@@ -31,7 +32,14 @@
                     <div class="input-group">
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Scan sertifikart prestasi</label>
-                            <input class="form-control" type="file" id="formFile" name="prestasi">
+                            <input class="form-control" type="file" id="formFile" name="KK">
+                        </div>
+                    </div>
+                    {{-- KTP ORANGTUA --}}
+                    <div class="input-group">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Scan KTP Orang tua</label>
+                            <input class="form-control" type="file" id="formFile" name="KTP-ORANGTUA">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-outline-primary">kirim</button>
@@ -46,7 +54,7 @@
                         <li class="list-group-item list-group-item-action">3. Scan prestasi jika ada </li>
                         <li class="list-group-item list-group-item-action">4. Scan KK </li>
                     </ul>
-                    <small>semua penguploadn berkas <b>wajib berformat pdf</b></small>
+                    <small>semua upload berkas <b>wajib berformat pdf</b></small>
                 </div>
             </div>
         </div>

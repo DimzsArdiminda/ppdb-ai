@@ -10,8 +10,9 @@
                     <div class="text-center">
                         <h4>Selamat Datang</h4>
                         <small>Silahkan masukkan data diri Anda</small>
+                        <br><a href="{{ url('/') }}" class="btn btn-info">kembali ke awal</a>
                     </div>
-                    <div class="card bg-transparent mx-auto mt-5" style="width: 30rem">
+                    <div class="card bg-transparent mx-auto mt-3" style="width: 30rem">
                         <div class="container">
                             <div class="container">
                                 <form method="POST" class="mb-4 mt-5" onsubmit="togglePassword();">
@@ -32,6 +33,7 @@
                                         <label class="form-check-label" for="togglePassword">Lihat Password</label>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
+                                    <p> lupa sandi? <a href="{{ url('Pendaftaran/reset-akun') }}" class="btn btn-outline-secondary"> reset disini </a> </p> 
                                 </form>
                             </div>
                         </div>
