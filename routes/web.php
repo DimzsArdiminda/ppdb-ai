@@ -15,6 +15,7 @@ use Layanan\GoogleCalendarService;
 |
 */
 
+
 // halaman awal
 Route::get('/', function () {
     return view('halaman_awal.awal');

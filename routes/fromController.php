@@ -15,4 +15,4 @@ route::post('/kirim-data-user-baru',[formUserController::class, 'PendaftranUserB
 route::get('/pencarian',[fiturController::class, 'handleSearch'])->name('pencarian');
 
 // upload file
-route::post('/upload-file',[berkasUploadController::class, 'uploadFile']);
+route::post('/upload-file',[ppdbController::class, 'uploadFile']);
