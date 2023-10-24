@@ -16,3 +16,12 @@ route::get('/pencarian',[fiturController::class, 'handleSearch'])->name('pencari
 
 // upload file
 route::post('/upload-file',[ppdbController::class, 'uploadFile']);
+
+// halmaam upload file
+route::get('/PPDB/pengisian-berkas',[ppdbController::class, 'halamanFileUpload']);
+
+// hapus file
+Route::get('/hapus-berkas/{jenisBerkas}', [ppdbController::class, 'hapusBerkas']);
+
+// save data ke database
+Route::post('/save-data-ppdb', [ppdbController::class, 'saveDataPPDB']);

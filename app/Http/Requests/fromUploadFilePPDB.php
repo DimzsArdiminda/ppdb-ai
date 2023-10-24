@@ -1,50 +1,39 @@
 <?php
-
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 class fromUploadFilePPDB extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
-     */
     public function rules()
-        {
-            return [
-                'Ijazah' => 'required|mimes:pdf',
-                'foto' => 'required|mimes:jpeg',
-                'prestasi' => 'required|mimes:pdf',
-                'KK' => 'required|mimes:pdf',
-                'KTP-ORANGTUA' => 'required|mimes:pdf',
-            ];
-        }
+{
+    return [
+        'Ijazah' => 'required|file|mimes:pdf|max:1999',
+        'foto' => 'required|mimes:jpg|max:1999', // Ganti 'file' menjadi 'image'
+        'prestasi' => 'mimes:pdf|max:1999',
+        'KK' => 'required|file|mimes:pdf|max:1999',
+        'KTPORANGTUA' => 'required|file|mimes:pdf|max:1999',
+    ];
+}
 
-        public function messages()
+
+    public function messages()
     {
         return [
             'Ijazah.required' => 'File scan Ijazah harus diunggah.',
             'Ijazah.mimes' => 'File scan Ijazah harus dalam format PDF.',
             'foto.required' => 'File scan pas foto harus diunggah.',
-            'foto.mimes' => 'File scan pas foto harus dalam format JPEG atau PNG.',
-            'prestasi.required' => 'File scan sertifikat prestasi harus diunggah.',
+            'foto.mimes' => 'File scan pas foto harus dalam format PDF.',
             'prestasi.mimes' => 'File scan sertifikat prestasi harus dalam format PDF.',
             'KK.required' => 'File scan KK harus diunggah.',
             'KK.mimes' => 'File scan KK harus dalam format PDF.',
-            'KTP-ORANGTUA.required' => 'File scan KTP Orang tua harus diunggah.',
-            'KTP-ORANGTUA.mimes' => 'File scan KTP Orang tua harus dalam format PDF.',
+            'KTPORANGTUA.required' => 'File scan KTP Orang tua harus diunggah.',
+            'KTPORANGTUA.mimes' => 'File scan KTP Orang tua harus dalam format PDF.',
         ];
-}
-
-
+    }
 }

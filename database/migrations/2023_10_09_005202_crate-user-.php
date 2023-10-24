@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('tanggal_lahir');
             $table->string('no_hp');
             $table->string('email')->unique();
+            $table->string('alamat');
             $table->string('password');
             $table->timestamps();
         });

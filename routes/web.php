@@ -44,11 +44,6 @@ Route::prefix('PPDB')->group(function () {
         return view('pendaftaranPPDB.pendaftaran-ppdb');
     });
 
-    // pengisian floder yang di butuhkan
-    Route::get('/pengisian-berkas', function () {
-        return view('pendaftaranPPDB.upload-berkas');
-    });
-
     Route::get('/pengecekan-ulang-berkas', function () {
         return view('pendaftaranPPDB.pengecekan-ulang');
     });

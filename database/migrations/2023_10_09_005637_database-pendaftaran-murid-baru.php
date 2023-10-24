@@ -13,20 +13,22 @@ return new class extends Migration
     {
         Schema::create('ppdb-baru', function (Blueprint $table) {
             $table->id();
+            // nama 
+            $table->string('nama');
+            $table->string('email');
+            $table->string('Tempat_lahir');
+            $table->date('Tanggal_Lahir');
+            $table->string('alamat');
             // upload berkas pdf
-            $table->string('ijazah');
+            $table->string('Ijazah');
             // upload foto
             $table->string('foto_3x5');
             // upload scan kartu keluarga
-            $table->string('prestasi');
+            $table->string('prestasi')->nullable();
             // upload scan raport
             $table->string('KK');
-            // upload scan akte kelahiran
-            $table->string('akte');
             // upload scan ktp orang tua
             $table->string('ktp');
-            // upload scan kartu khusus
-            $table->string('khusus');
             $table->timestamps();
         });
     }

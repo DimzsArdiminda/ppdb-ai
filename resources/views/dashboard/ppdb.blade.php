@@ -5,8 +5,14 @@
 @section("konten")
 <div class="container">
     <div class="container">
-        <h4 class="text-center mt-5 animate__animated animate__fadeInDown  mb-5">SELAMAT DATANG CALON PEMIMPIN DI ERA 5.0</h4>
+        <h4 class="text-center mt-5 animate__animated animate__fadeInDown  mb-5">SELAMAT DATANG CALON PEMIMPIN DI ERA
+            5.0</h4>
 
+            @if(session('success'))
+            <div class="alert alert-success mt-3 mb-3">
+                {{ session('success') }}
+            </div>
+            @endif
         {{-- KONTEN --}}
         <div class="row d-flex justify-content-center mt-5">
             <div class="col-sm-5">
@@ -25,7 +31,7 @@
                             tidak memiliki catatan kriminal
                         </li>
                         <li>
-                            fotocopy KK dan Rapot ujian 
+                            fotocopy KK dan Rapot ujian
                         </li>
                     </ul>
                 </div>
@@ -50,12 +56,12 @@
                                 <p>2 Febuary - 15 Febuary 2023</p>
                             </li>
                         </ul>
-                        <a href="#" class="btn btn-outline-info mt-3"> Download Jadwal   Pendaftaran</a>
+                        <a href="#" class="btn btn-outline-info mt-3"> Download Jadwal Pendaftaran</a>
                     </div>
                 </div>
             </div>
 
-            <div class="text-center mt-5 mb-5">
+            <div class="text-center mt-2 mb-5">
                 <h6>Sudah siap dengan perkembangan teknologi sekarang???
                     <br>
                     Daftarkan dirimu segera dan jadi bagian dari perkembangan teknologi bernuansa islami

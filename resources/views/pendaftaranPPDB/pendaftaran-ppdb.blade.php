@@ -51,7 +51,7 @@
                                 <input type="text" class="form-control" id="nama" name="nama"
                                     placeholder="Dimas Ardiminda Edia Putra" value="{{ old('nama') }}">
                                 @error('nama')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             {{-- email  --}}
@@ -60,7 +60,7 @@
                                 <input type="email" class="form-control" id="email" name="email"
                                     placeholder="ardiminda@gmail.com" value="{{ old('email') }}">
                                 @error('email')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
 
@@ -70,31 +70,37 @@
                                 <input type="text" class="form-control" id="Tempat_lahir" name="Tempat_lahir"
                                     value="{{ old('Tempat_lahir') }}" placeholder="Pasuruan">
                                 @error('Tempat_lahir')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            
+
                             {{-- tanggal lahir --}}
                             <div class="mb-3">
                                 <label for="Tanggal_Lahir" class="form-label">Tanggal Lahir</label>
-                                <input type="date" class="form-control" id="Tanggal_Lahir" name="Tanggal_Lahir" value="{{ old('Tanggal_Lahir') }}">
+                                <input type="date" class="form-control" id="Tanggal_Lahir" name="Tanggal_Lahir"
+                                    value="{{ old('Tanggal_Lahir') }}">
                                 @error('Tanggal_Lahir')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            
+
                             {{-- alamat rumah --}}
                             <div class="mb-3">
                                 <label for="alamat" class="form-label">Alamat</label>
-                                <textarea class="form-control" id="alamat" rows="3" name="alamat">@if(old("alamat")){{ old("alamat") }}@endif</textarea>
+                                <textarea class="form-control" id="alamat" rows="3"
+                                    name="alamat">@if(old("alamat")){{ old("alamat") }}@endif</textarea>
                                 @error('alamat')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            
 
                             <button type="submit" class="btn btn-primary mb-3">submit</button>
                         </form>
+                        @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>

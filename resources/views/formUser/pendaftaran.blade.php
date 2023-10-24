@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="form-group mt-2 mb-2">
                                         <label for="password2">Konfirmasi Ulang Password</label>
-                                        <input type="password" name="pass" class="form-control " id="password2">
+                                        <input type="password" name="pass" class="form-control " id="password2" >
                                     </div>
                                 </div>
 

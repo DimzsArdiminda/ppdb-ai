@@ -52,6 +52,13 @@
                     </div>
                 </div>
             </div>
+            {{-- notifikasi --}}
+            @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+            
             {{-- button pilihan --}}
             <div class="container mt-3">
                 <div class="row">
