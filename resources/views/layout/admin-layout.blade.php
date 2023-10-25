@@ -18,6 +18,11 @@
     {{-- logo --}}
     <link rel="icon" href="{{ asset('asset/img/logo/logo.png') }}">
 
+    <!-- Include SweetAlert2 CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     {{-- datatables --}}
     <link rel="" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
@@ -31,7 +36,7 @@
     </style>
 </head>
 
-<body style="background-color: darkgray">
+<body>
     {{-- navbar --}}
     <nav class="navbar bg-body-tertiary fixed-top bg-transparent mb-5">
         <div class="container-fluid">
@@ -49,10 +54,12 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link @yield('daf-akun')" aria-current="page" href="{{ url('admin/daftar-akun') }}">Daftar Akun</a>
+                            <a class="nav-link @yield('daf-akun')" aria-current="page"
+                                href="{{ url('admin/daftar-akun') }}">Daftar Akun</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @yield('peserta-baru')" href="{{ url('admin/daftar-ppdb') }}">Peserta didik baru</a>
+                            <a class="nav-link @yield('peserta-baru')" href="{{ url('admin/daftar-ppdb') }}">Peserta
+                                didik baru</a>
                         </li>
                         {{-- dropdown 1 --}}
                         <li class="nav-item dropdown">
@@ -61,12 +68,16 @@
                                 Data sekolah
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item disabled  @yield('daf-murid')" href="#">Daftar Murid</a></li>
-                                <li><a class="dropdown-item disabled @yield('daf-gur-gaw')" href="#">Daftar guru dan pegawai</a>
+                                <li><a class="dropdown-item disabled  @yield('daf-murid')" href="#">Daftar Murid</a>
                                 </li>
-                                <li><a class="dropdown-item disabled @yield('daf-ket')" href="#">Daftar Ketua Organisasi</a>
+                                <li><a class="dropdown-item disabled @yield('daf-gur-gaw')" href="#">Daftar guru dan
+                                        pegawai</a>
                                 </li>
-                                <li><a class="dropdown-item disabled @yield('track-rec')" href="#">Track Record Alumni</a></li>
+                                <li><a class="dropdown-item disabled @yield('daf-ket')" href="#">Daftar Ketua
+                                        Organisasi</a>
+                                </li>
+                                <li><a class="dropdown-item disabled @yield('track-rec')" href="#">Track Record
+                                        Alumni</a></li>
                             </ul>
                         </li>
                         {{-- end of dropdown 1 --}}
@@ -84,6 +95,8 @@
                 <div class="row text-start">
                     <h5>HALO ADMIN</h5>
                     <div id="clock"></div>
+                    {{-- date --}}
+                    <div id="tanggal"></div>
                 </div>
                 {{-- konten --}}
                 @yield('konten')
@@ -122,6 +135,31 @@
             $('#tabel').DataTable();
         });
         // end of tabel 
+    </script>
+
+    <script>
+        // date
+        function updateRealTimeDate() {
+            var currentDate = new Date();
+            var options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            var formattedDate = currentDate.toLocaleDateString('id', options);
+
+            // var currentTime = currentDate.toLocaleTimeString();
+            // var dateTimeString = formattedDate + ' ' + currentTime;
+
+            document.getElementById('tanggal').innerText = formattedDate;
+        }
+
+        // Update every second
+        setInterval(updateRealTimeDate, 1000);
+
+        // Initial update
+        updateRealTimeDate();
     </script>
 
     {{-- end of script --}}

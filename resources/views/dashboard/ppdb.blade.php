@@ -14,9 +14,9 @@
             </div>
             @endif
         {{-- KONTEN --}}
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-sm-5">
-                <h5 class="text-center">Syarat dan Ketentuan</h5>
+        <div class="row d-flex justify-content-center mt-5 bg-primary bg-opacity-25 mb-3 rounded-4 ">
+            <div class="col-sm-5 ">
+                <h5 class="text-center mt-3">Syarat dan Ketentuan</h5>
                 <hr>
                 <div class="container">
                     <small>berikut adalah syarat dan ketentuan pendaftran peserta didik baru</small>
@@ -39,11 +39,11 @@
             {{-- verikal line --}}
 
             <div class="col-sm-5">
-                <h5 class="text-center">Jadwal</h5>
+                <h5 class="text-center mt-3">Jadwal</h5>
                 <hr>
-                <div class="container">
+                <div class="container  bg-opacity-25 bg-info rounded-2">
                     <div class="container">
-                        <p>Pengumuman dalam setiap tahapan dapat di lihat di h+1 akhir tanggal pendaftaran di setiap
+                        <p class="mt-2">Pengumuman dalam setiap tahapan dapat di lihat di h+1 akhir tanggal pendaftaran di setiap
                             tahapan</p>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
@@ -56,7 +56,7 @@
                                 <p>2 Febuary - 15 Febuary 2023</p>
                             </li>
                         </ul>
-                        <a href="#" class="btn btn-outline-info mt-3"> Download Jadwal Pendaftaran</a>
+                        <a href="#" class="btn btn-outline-info mt-3 mb-3"> Download Jadwal Pendaftaran</a>
                     </div>
                 </div>
             </div>

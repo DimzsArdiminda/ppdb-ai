@@ -18,7 +18,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="asset/img/carousel/welkom.png" class="d-block w-100" alt="welkom">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block ">
                         <h5>Welcome to The Islam High School International</h5>
                         <p>together to create faith-based education</p>
                     </div>
@@ -56,8 +56,8 @@
     <div class="container mt-5">
         <div class="container">
             {{-- ucapan selamat datang --}}
-            <div class="row text-center">
-                <h3>Welcome to SMAN ISLAM INTERNASIONAL</h3>
+            <div class="row text-center bg-primary bg-opacity-25 mb-3 rounded-4">
+                <h3 class="mt-2">Welcome to SMAN ISLAM INTERNASIONAL</h3>
                 <P>Be bright in Islam Community</P>
             </div>
             {{-- end of ucapan selamat datang --}}
@@ -97,10 +97,10 @@
         </div>
     </div>
     {{-- Ringkasan Statistika sekolah --}}
-    <div class="container mb-5">
-        <div class="container">
-            <div class="row">
-                <h5>Progres Tahun Ajaran 2022 - 2023</h5>
+    <div class="container mb-5 bg-primary bg-opacity-25 mb-3 rounded-4">
+        <div class="container mt-3">
+            <div class="row ">
+                <h5 class="mt-3">Progres Tahun Ajaran 2022 - 2023</h5>
                 <div class="container">
                     {{-- prestasi --}}
                     <div class="container mb-3">

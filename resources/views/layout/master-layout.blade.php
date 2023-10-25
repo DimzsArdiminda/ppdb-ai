@@ -17,6 +17,11 @@
 
     {{-- chart.js --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
+    <!-- Include SweetAlert2 CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>Home - @yield("title")</title>
     <style>
         .highlight {
@@ -24,10 +29,10 @@
             font-weight: bold;
         }
     </style>
-    
+
 </head>
 
-<body style="background-color:darkgray">
+<body>
     {{-- navbar --}}
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -68,41 +73,64 @@
         function handleSearch() {
             var query = document.getElementById('searchInput').value.toLowerCase();
             var pageContent = document.body.innerHTML;
-    
+
             // Menyimpan nilai asli dari konten halaman
             var originalContent = pageContent;
-    
+
             // Mengganti konten halaman dengan versi tanpa highlight
             pageContent = pageContent.replace(new RegExp('<span class="highlight">', 'gi'), '');
             pageContent = pageContent.replace(new RegExp('</span>', 'gi'), '');
-    
+
             // Menambahkan highlight pada kata yang ditemukan
             pageContent = pageContent.replace(new RegExp(query, 'gi'), function (match) {
                 return '<span class="highlight">' + match + '</span>';
             });
-    
+
             // Memasukkan konten yang telah diubah kembali ke dalam halaman
             document.body.innerHTML = pageContent;
-    
+
             // Mencari elemen yang pertama kali ditemukan
             var highlightedElement = document.querySelector('.highlight');
-    
+
             if (highlightedElement) {
                 // Menggulir halaman ke posisi elemen yang ditemukan
-                highlightedElement.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+                highlightedElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                    inline: 'center'
+                });
             } else {
                 // Mengembalikan nilai asli jika tidak ditemukan
                 document.body.innerHTML = originalContent;
                 alert('Kata atau kalimat tidak ditemukan di halaman.');
             }
-    
+
             // Mengembalikan false agar form tidak benar-benar dikirim
             return false;
         }
     </script>
-    
-    
-    
+
+<script>
+    function confirmUpload() {
+        Swal.fire({
+            title: 'Konfirmasi',
+            text: 'Apakah file yang diupload sudah benar?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, lanjutkan!',
+            cancelButtonText: 'Batal',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika pengguna menyetujui, lanjutkan dengan mengirim formulir
+                document.querySelector('form').submit();
+            }
+        });
+    }
+</script>
+
+
 </body>
 
 </html>

@@ -44,7 +44,7 @@
             </div>
             {{-- isian form --}}
 
-            <div class="col-sm-8 col-xl-8 ">
+            <div class="col-sm-8 col-xl-8">
                 <div class="conatiner">
                     <div class="container mt-3 ms-2">
                         <form action="{{ url('/send-data-diri') }}" method="post">
@@ -98,7 +98,7 @@
                                 @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-primary mb-3" >submit</button>
+                            <button type="submit" class="btn btn-primary mb-3">submit</button>
                         </form>
 
                     </div>

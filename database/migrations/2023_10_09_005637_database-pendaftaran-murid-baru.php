@@ -20,15 +20,15 @@ return new class extends Migration
             $table->date('Tanggal_Lahir');
             $table->string('alamat');
             // upload berkas pdf
-            $table->string('Ijazah');
+            $table->string('berkasIjazah');
             // upload foto
-            $table->string('foto_3x5');
+            $table->string('berkasFoto');
             // upload scan kartu keluarga
-            $table->string('prestasi')->nullable();
+            $table->string('berkasPrestasi')->nullable();
             // upload scan raport
-            $table->string('KK');
+            $table->string('berkasKK');
             // upload scan ktp orang tua
-            $table->string('ktp');
+            $table->string('berkasKTPOrangTua');
             $table->timestamps();
         });
     }

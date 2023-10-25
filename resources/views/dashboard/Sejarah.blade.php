@@ -4,10 +4,12 @@
 @section('konten')
 <div class="container">
     <div class="container">
-        <div>
-            <h4 class="text-center">Sejarah Sekolah Islam Nasional</h4>
-            <div class="container mt-4">
-                <p class="animate__animated animate__fadeInLeft animate__slow">
+        <div> 
+            <div class=" container bg-primary bg-opacity-25 rounded-4 ">
+                <h4 class="text-center mt-3 mb-3">Sejarah Sekolah Islam Nasional</h4>
+            </div>
+            <div class="container mt-4 bg-primary bg-opacity-25 mb-3 rounded-4">
+                <p class="animate__animated animate__fadeInLeft animate__slow mt-2">
                     Pendidikan Islam telah ada di Indonesia selama berabad-abad, jauh sebelum kedatangan kolonial
                     Belanda.
                     Pada masa tersebut, pendidikan Islam didasarkan pada pondok pesantren yang mengajarkan agama Islam

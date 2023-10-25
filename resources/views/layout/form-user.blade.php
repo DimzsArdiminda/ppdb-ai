@@ -19,10 +19,14 @@
     {{-- sewett alert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- Include SweetAlert2 CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>Pendaftaran - @yield('title')</title>
 </head>
 
-<body style="background-color: darkgray">
+<body>
     @yield('konten')
     <script>
         // lihat passwoard
@@ -39,7 +43,7 @@
         }
 
         // tampilkan sandi
-        
+
         function togglePassword() {
             var passwordInput = document.getElementById("password");
             var toggleCheckbox = document.getElementById("togglePassword");
@@ -48,4 +52,5 @@
         }
     </script>
 </body>
+
 </html>
