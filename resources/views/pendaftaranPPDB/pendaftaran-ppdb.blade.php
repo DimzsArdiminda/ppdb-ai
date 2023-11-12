@@ -7,12 +7,13 @@
 <div class="container mt-5">
     <div class="container mt-5">
         {{-- row notifikasi --}}
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
         <div class="row mt-5 mb-5 bg-primary bg-opacity-25 mb-3 rounded-4">
-            @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-            @endif
+            
             {{-- sapaan --}}
             <div class="col-sm-4 col-xl-l4 bg-primary rounded-3 ">
                 <div class="container ">

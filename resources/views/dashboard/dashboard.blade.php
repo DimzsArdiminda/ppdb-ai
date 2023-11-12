@@ -2,95 +2,100 @@
 @section('dashboard', 'active')
 @section("title", "Dashboard")
 @section('konten')
-    
-    
-    {{-- carousel --}}
-    <div class="">
-        <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+
+
+{{-- carousel --}}
+<div class="">
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
                 aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="asset/img/carousel/welkom.png" class="d-block w-100" alt="welkom">
-                    <div class="carousel-caption d-none d-md-block ">
-                        <h5>Welcome to The Islam High School International</h5>
-                        <p>together to create faith-based education</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="asset/img/carousel/slogan.png" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>international standard Islamic school</h5>
-                        <p>embrace globalization within Islamic norms</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="asset/img/carousel/visi.png" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Visi Misi</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="asset/img/carousel/welkom.png" class="d-block w-100" alt="welkom">
+                <div class="carousel-caption d-none d-md-block ">
+                    <h5>Welcome to The Islam High School International</h5>
+                    <p>together to create faith-based education</p>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            <div class="carousel-item">
+                <img src="asset/img/carousel/slogan.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>international standard Islamic school</h5>
+                    <p>embrace globalization within Islamic norms</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="asset/img/carousel/visi.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Visi Misi</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    {{-- end of crousel --}}
-    
-    {{-- ucapakan selamat datang --}}
-    <div class="container mt-5">
-        <div class="container">
-            {{-- ucapan selamat datang --}}
-            <div class="row text-center bg-primary bg-opacity-25 mb-3 rounded-4">
-                <h3 class="mt-2">Welcome to SMAN ISLAM INTERNASIONAL</h3>
-                <P>Be bright in Islam Community</P>
-            </div>
-            {{-- end of ucapan selamat datang --}}
-            
-            {{-- ucapan selamat datang dari kepala sekolah --}}
-            <div class="container mb-5">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="container">
-                            <h4>Assalamualaikum Wr Wb</h4>
-                            <br>
-                            <p>Selamat datang di SMA Islam Internasional! Kami sangat senang Anda bergabung dengan
-                                komunitas
-                                pendidikan kami yang dinamis. Kami berkomitmen untuk memberikan pendidikan berkualitas
-                                tinggi yang berlandaskan nilai-nilai Islam. Bersama-sama, mari kita berusaha untuk
-                                mencapai
-                                prestasi yang luar biasa dan membentuk masa depan yang cerah. Selamat belajar!"
-                            </p>
+</div>
+{{-- end of crousel --}}
+
+{{-- ucapakan selamat datang --}}
+<div class="container mt-5">
+    <div class="container">
+        <div class="container mb-3">
+            Halo selamat datang {{ session('data.nama') }}  <br>
+            dengan email {{ session('data.email') }}
+        </div>
+        {{-- ucapan selamat datang --}}
+        <div class="row text-center bg-primary bg-opacity-25 mb-3 rounded-4">
+            <h3 class="mt-2">Welcome to SMAN ISLAM INTERNASIONAL</h3>
+            <P>Be bright in Islam Community</P>
+        </div>
+        {{-- end of ucapan selamat datang --}}
+
+        {{-- ucapan selamat datang dari kepala sekolah --}}
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="container">
+                        <h4>Assalamualaikum Wr Wb</h4>
+                        <br>
+                        <p>Selamat datang di SMA Islam Internasional! Kami sangat senang Anda bergabung dengan
+                            komunitas
+                            pendidikan kami yang dinamis. Kami berkomitmen untuk memberikan pendidikan berkualitas
+                            tinggi yang berlandaskan nilai-nilai Islam. Bersama-sama, mari kita berusaha untuk
+                            mencapai
+                            prestasi yang luar biasa dan membentuk masa depan yang cerah. Selamat belajar!"
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card d-flex justify-content-center" style="width: 100%;">
+                        <img src="asset/img/struktur/kepsek.jpg" alt="kepsek" class="rounded-3 ms-5" width="100rem">
+                        <div class="card-body">
+                            <p>Bambang Sarmita, ST, MT, PhD</p>
+                            <small>Kepala sekolah 2023 - 2028</small>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="card d-flex justify-content-center" style="width: 100%;">
-                            <img src="asset/img/struktur/kepsek.jpg" alt="kepsek" class="rounded-3 ms-5" width="100rem">
-                            <div class="card-body">
-                                <p>Bambang Sarmita, ST, MT, PhD</p>
-                                <small>Kepala sekolah 2023 - 2028</small>
-                            </div>
-                        </div>
+
+
+                    <div class="container">
                         
-                        
-                        <div class="container">
-                            
-                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -106,49 +111,49 @@
                     <div class="container mb-3">
                         <h6>Peningkatan prestasi dari tahun 2021 - 2022 </h6>
                         <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="87"
-                        aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar bg-success" style="width: 87%">87%</div>
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-success" style="width: 87%">87%</div>
+                        </div>
                     </div>
-                </div>
-                
-                {{-- Jumlah Lulusn di terima di PTN negeri angkatan 2022 --}}
-                <div class="container mb-3">
-                    <h6>Jumlah Lulusn di terima di PTN negeri angkatan 2022 </h6>
-                    <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="96"
-                    aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar bg-info text-dark" style="width: 96%">96%</div>
+
+                    {{-- Jumlah Lulusn di terima di PTN negeri angkatan 2022 --}}
+                    <div class="container mb-3">
+                        <h6>Jumlah Lulusn di terima di PTN negeri angkatan 2022 </h6>
+                        <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="96"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-info text-dark" style="width: 96%">96%</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            
-        </div>
-    </div>
-    
-    {{-- Nilai rata rata  --}}
-    <h5 class="mt-5">Grafik Nilai rata rata kelas 12 Mipa TP2022 - 2023 </h5>
-    
-    <!-- Tempatkan elemen grafik di sini -->
-    <canvas id="IPA" width="400" height="200"></canvas>
-    
-    <h5 class="mt-3">Grafik Nilai rata rata kelas 12 Ips TP2022 - 2023</h5>
-    <!-- Tempatkan elemen grafik di sini -->
-    <canvas id="IPS" width="400" height="200"></canvas>
-    
-    <h5 class="mt-5">Grafik Nilai rata rata kelas 11 Mipa TP2022 - 2023 </h5>
-    <!-- Tempatkan elemen grafik di sini -->
-    <canvas id="IPA-11" width="400" height="200"></canvas>
-    
-    <h5 class="mt-3">Grafik Nilai rata rata kelas 11 Ips TP2022 - 2023</h5>
-    <!-- Tempatkan elemen grafik di sini -->
-    <canvas id="IPS-11" width="400" height="200"></canvas>
-    
-    <h5 class="mt-3">Grafik Nilai rata rata kelas 10 Mipa TP2022 - 2023</h5>
-    <!-- Tempatkan elemen grafik di sini -->
-    <canvas id="IPA-10" width="400" height="200"></canvas>
-    
-    <h5 class="mt-3">Grafik Nilai rata rata kelas 10 IPS TP2022 - 2023</h5>
-    <!-- Tempatkan elemen grafik di sini -->
-    <canvas id="IPS-10" width="400" height="200"></canvas>
-    {{-- Kalender akademik dan  --}}
+
+            {{-- Nilai rata rata  --}}
+            <h5 class="mt-5">Grafik Nilai rata rata kelas 12 Mipa TP2022 - 2023 </h5>
+
+            <!-- Tempatkan elemen grafik di sini -->
+            <canvas id="IPA" width="400" height="200"></canvas>
+
+            <h5 class="mt-3">Grafik Nilai rata rata kelas 12 Ips TP2022 - 2023</h5>
+            <!-- Tempatkan elemen grafik di sini -->
+            <canvas id="IPS" width="400" height="200"></canvas>
+
+            <h5 class="mt-5">Grafik Nilai rata rata kelas 11 Mipa TP2022 - 2023 </h5>
+            <!-- Tempatkan elemen grafik di sini -->
+            <canvas id="IPA-11" width="400" height="200"></canvas>
+
+            <h5 class="mt-3">Grafik Nilai rata rata kelas 11 Ips TP2022 - 2023</h5>
+            <!-- Tempatkan elemen grafik di sini -->
+            <canvas id="IPS-11" width="400" height="200"></canvas>
+
+            <h5 class="mt-3">Grafik Nilai rata rata kelas 10 Mipa TP2022 - 2023</h5>
+            <!-- Tempatkan elemen grafik di sini -->
+            <canvas id="IPA-10" width="400" height="200"></canvas>
+
+            <h5 class="mt-3">Grafik Nilai rata rata kelas 10 IPS TP2022 - 2023</h5>
+            <!-- Tempatkan elemen grafik di sini -->
+            <canvas id="IPS-10" width="400" height="200"></canvas>
+            {{-- Kalender akademik dan  --}}
 
             {{-- Ekstarkurikuler --}}
             <div class="row mt-5 d-flex justify-content-center">
@@ -163,52 +168,52 @@
                                 <hr>
                                 <p>didirakan pada tahun 2009, Ekstarkurikuler Voli sudah mengantongi banyak piala sperti
                                     Polri CUP 2022, Piala Gubernur 2021, dan lain lain</p>
-                                    
-                                    <a href="#" class="btn btn-primary">Ketua Ekstakr Voli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    {{-- Badminton --}}
-                    <div class="col-xl-1 d-flex justify-content-center " style="width: 20rem">
-                        <div class="container">
-                            <div class="card mt-2 mb-2" style="width: 18rem">
-                                <img src="asset/img/ekskul/badminton.jpeg" alt="voli">
-                                <div class="card-body">
-                                    <h5>badminton</h5>
-                                    <hr>
-                                    {{-- caption badminton --}}
-                                    <p>Ekstarkurikuler yang akan mendidik para murid menjadi pemain profesional dan sudah
-                                        memiliki pelatih yang
-                                        yang memiliki rekam jejak yang epic
-                                    </p>
-                                    
-                                    <a href="#" class="btn btn-primary">Ketua Ekstakr Voli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    {{-- basket  --}}
-                    <div class="col-xl-1 d-flex justify-content-center " style="width: 20rem">
-                        <div class="container">
-                            <div class="card mt-2 mb-2" style="width: 18rem">
-                                <img src="asset/img/ekskul/basket.jpg" alt="basket">
-                                <div class="card-body">
-                                    <h5>Voli</h5>
-                                    <hr>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos consequuntur
-                                        perspiciatis quae ea reiciendis obcaecati, laborum</p>
 
-                                        <a href="#" class="btn btn-primary">Ketua Ekstakr Voli</a>
-                                    </div>
-                                </div>
+                                <a href="#" class="btn btn-primary">Ketua Ekstakr Voli</a>
                             </div>
+                        </div>
+                    </div>
                 </div>
-                
+
+                {{-- Badminton --}}
+                <div class="col-xl-1 d-flex justify-content-center " style="width: 20rem">
+                    <div class="container">
+                        <div class="card mt-2 mb-2" style="width: 18rem">
+                            <img src="asset/img/ekskul/badminton.jpeg" alt="voli">
+                            <div class="card-body">
+                                <h5>badminton</h5>
+                                <hr>
+                                {{-- caption badminton --}}
+                                <p>Ekstarkurikuler yang akan mendidik para murid menjadi pemain profesional dan sudah
+                                    memiliki pelatih yang
+                                    yang memiliki rekam jejak yang epic
+                                </p>
+
+                                <a href="#" class="btn btn-primary">Ketua Ekstakr Voli</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- basket  --}}
+                <div class="col-xl-1 d-flex justify-content-center " style="width: 20rem">
+                    <div class="container">
+                        <div class="card mt-2 mb-2" style="width: 18rem">
+                            <img src="asset/img/ekskul/basket.jpg" alt="basket">
+                            <div class="card-body">
+                                <h5>Voli</h5>
+                                <hr>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos consequuntur
+                                    perspiciatis quae ea reiciendis obcaecati, laborum</p>
+
+                                <a href="#" class="btn btn-primary">Ketua Ekstakr Voli</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            
+
             {{-- ekskul 2 --}}
             {{-- Ekstarkurikuler --}}
             <div class="row mt-5 d-flex justify-content-center">
@@ -520,4 +525,4 @@
         </div>
     </div>
     {{-- end of ringkasan Statistika sekolah --}}
-@endsection
+    @endsection

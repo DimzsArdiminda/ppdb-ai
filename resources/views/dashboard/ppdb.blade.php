@@ -66,7 +66,7 @@
                     <br>
                     Daftarkan dirimu segera dan jadi bagian dari perkembangan teknologi bernuansa islami
                 </h6>
-                <a href="{{ url('PPDB/pengisian-data-diri') }}" class="btn btn-light mt-3">DAFTAR SEKARANG !!!</a>
+                <a href="{{ url('PPDB/tutorial-pengisian') }}" class="btn btn-light mt-3">DAFTAR SEKARANG !!!</a>
             </div>
 
         </div>

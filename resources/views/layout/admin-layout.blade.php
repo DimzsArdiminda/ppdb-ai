@@ -33,7 +33,13 @@
         .mt-7 {
             margin-bottom: 7rem !important;
         }
+
+        .highlighted {
+            background-color: yellow;
+            /* Atur warna penandaan sesuai keinginan Anda */
+        }
     </style>
+
 </head>
 
 <body>
@@ -78,10 +84,14 @@
                                 </li>
                                 <li><a class="dropdown-item disabled @yield('track-rec')" href="#">Track Record
                                         Alumni</a></li>
+                                
                             </ul>
                         </li>
                         {{-- end of dropdown 1 --}}
                     </ul>
+                    <li><a class="dropdown-item" href="{{ url('/admin-keluar') }}" class="btn btn-outline-danger">Keluar
+                        </a>
+                </li>
                 </div>
             </div>
         </div>

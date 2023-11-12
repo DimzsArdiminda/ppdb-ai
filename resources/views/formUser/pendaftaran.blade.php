@@ -33,6 +33,11 @@
                                         <label for="nomer_hp">Nomer HP</label>
                                         <input type="text" name="no_hp" class="form-control" id="nomer_hp">
                                     </div>
+                                    {{-- alamat --}}
+                                    <div class="form-group mt-2">
+                                        <label for="nomer_hp">Alamat</label>
+                                        <textarea type="text" name="alamat" class="form-control" id="nomer_hp"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>

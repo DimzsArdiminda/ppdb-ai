@@ -54,13 +54,12 @@
                     <li class="nav-item">
                         <a class="nav-link @yield('ppdb')" href="{{ url('PPDB') }}">PPDB</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('proses-logout') }}" class="btn btn-outline-danger">Keluar</a>
+                    </li>
                 </ul>
                 <!-- ... (bagian lain dari kode HTML) ... -->
-                <form class="d-flex" role="search" onsubmit="return handleSearch()">
-                    <input class="form-control me-2" type="search" id="searchInput" placeholder="Search"
-                        aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                
                 <!-- ... (bagian lain dari kode HTML) ... -->
 
 

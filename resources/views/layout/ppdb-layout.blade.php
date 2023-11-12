@@ -49,7 +49,7 @@
         <ul class="nav nav-tabs ">
             <li class="nav-item">
                 <a class="nav-link @yield(" pengecekan-data-diri")"
-                    href="{{ url('PPDB/pengecekan-ulang-berkas') }}">Syarat Ketentuan dan alur Pendaftaram</a>
+                    href="{{ url('PPDB/tutorial-pengisian') }}">Tutorial pengisian</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link @yield(" data-diri") " aria-current=" page"

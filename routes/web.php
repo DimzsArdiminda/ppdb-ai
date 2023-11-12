@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Gcalender;
 use Layanan\GoogleCalendarService;
+use App\Http\Middleware\CheckRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +30,12 @@ Route::get('/dashboard', function () {
 // halaman sejarah
 Route::get('sejarah', function () {
     return view('dashboard.sejarah');
-});
+})->middleware('role:pengguna');
 
 // halaman ppdb
 Route::get('PPDB', function () {
     return view('dashboard.ppdb');
-});
+})->middleware('role:pengguna');
 
 // halaman PPDB - pendaftaran
 // route grub ppdb
@@ -42,46 +43,60 @@ Route::prefix('PPDB')->group(function () {
     // pengisian form peratama
     Route::get('/pengisian-data-diri', function () {
         return view('pendaftaranPPDB.pendaftaran-ppdb');
-    });
+    })->middleware('role:pengguna');
 
-    Route::get('/pengecekan-ulang-berkas', function () {
+    Route::get('/tutorial-pengisian', function () {
         return view('pendaftaranPPDB.pengecekan-ulang');
-    });
+    })->middleware('role:pengguna');
     
 
 });
 
 Route::prefix('Pendaftaran')->group(function () {
-    // akun baru
+    // Middleware untuk route akun baru
     Route::get('Akun-Baru', function () {
         return view('formUser.pendaftaran');
     });
 
-    // login
+    // Middleware untuk route login
     Route::get('login', function () {
         return view('formUser.loginUser');
     });
 
-    // reset
+    // Middleware untuk route reset
     Route::get('reset-akun', function () {
         return view('formUser.reset-sandi');
     });
-
-
 });
+
 
 Route::prefix('admin')->group(function () {
     // akun baru
-    Route::get('daftar-akun', function () {
+    Route::get('daftar-ppdb', function () {
         return view('admin.dashboard');
-    });
+    })->middleware('role:admin');
 
     // login
-    Route::get('daftar-ppdb', function () {
+    Route::get('daftar-akun', function () {
         return view('admin.PPDB');
-    });
+    })->middleware('role:admin');
+
+    Route::get('/email/terima', function () {
+        return view('email.template');
+    })->middleware('role:admin');
 });
 
+route::get('/email/terima', function () {
+    return view('email.template');
+})->middleware('role:admin');
+
+route::get('/email/tolak', function () {
+    return view('email.template');
+})->middleware('role:admin');
+
+route::get('/logout', function () {
+    return view('dashboard.logout');
+});
 // from controller
 include 'fromController.php';
 

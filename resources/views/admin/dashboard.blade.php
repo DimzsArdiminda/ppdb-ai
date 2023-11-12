@@ -1,11 +1,20 @@
 @extends('layout.admin-layout')
-@section('daf-akun', 'active')
+@section('peserta-baru', 'active')
 @section('title', '- Dashboard Utama')
 
 @section('konten')
 <div class="text-center">
-    <h5>Data Akun baru</h5>
+    {{-- notifikasi --}}
+    @if (Session::has('success'))
+    <div class="alert alert-success">
+        {{ Session::get('success') }}
+    </div>
+    @endif
 
+
+    {{-- tabel --}}
+
+    <h5>Data Murid Baru {{ date('Y')-1 }}/{{ date('Y') }}</h5>
     <div class="row bg-primary bg-opacity-50 rounded-4 d-flex ">
         <div class="table-responsive b5 mt-3">
             <table class="table table-striped rounded-4" id="tabel">
@@ -37,27 +46,42 @@
                         <td>{{ $item->Tempat_lahir }}</td>
                         <td>{{ $item->Tanggal_Lahir }}</td>
                         <td>{{ $item->alamat }}</td>
-                        <td>{{ $item->berkasIjazah }}</td>
-                        <td>{{ $item->berkasFoto }}</td>
-                        <td>{{ $item->berkasPrestasi }}</td>
-                        <td>{{ $item->berkasKK }}</td>
-                        <td>{{ $item->berkasIjazah }}</td>
-                        <td>{{ $item->created_at }}</td>
+                        <td> <a href="{{ $item->berkasIjazah }}" class="btn btn-outline-info">File berkas Ijazah di sini</a></td>
+                        <td><a href="{{ $item->berkasFoto }}" class="btn btn-outline-info">File berkas foto</a></td>
+                        <td> <a href="{{ $item->berkasPrestasi }}" class="btn btn-outline-info"> File berkas prestasi</a></td>
+                        <td><a href="{{ $item->berkasKK }}" class="btn btn-outline-info">File berkas KK</a></td>
+                        <td><a href="{{ $item->berkasIjazah }}" class="btn btn-outline-info">File Berkas Ijazah</a></td>
+                        <td> {{ $item->created_at }} </td>
                         <td>{{ $item->updated_at }}</td>
                         <td>
                             <div class="container">
+                                {{-- terima --}}
                                 <div class="row mt-2">
-                                    {{-- terima --}}
-                                    <a href="#" class="btn btn-primary"> terima </a>
+                                    <button class="btn btn-primary terima-button" data-item-id="{{ $item->id }}">Terima</button>
+                                </div>                               
+                                {{-- tolak --}}
+                                <div class="row mt-2">
+                                    <button type="submit" class="btn btn-danger tolak-button"  data-item-id="{{ $item->id }}">tolak</button>
                                 </div>
+                                {{-- tandai --}}
                                 <div class="row mt-2">
-                                    <a href="#" class="btn btn-secondary"> tolak </a>
-                                </div>
+                                    <button class="btn btn-secondary tandai-button" data-item-id="{{ $item->id }}">Tandai</button>
+                                </div>                                
+                                {{-- hapus --}}
                                 <div class="row mt-2">
-                                    <a href="#" class="btn btn-success"> tandai </a>
-                                </div>
-                                <div class="row mt-2">
-                                    <a href="#" class="btn btn-success"> hapus </a>
+                                    <form action="{{ route('admin.CabutLaporan', $item) }}" method="post" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="button" class="btn btn-warning" onclick="Swal.fire({
+                                        title: 'Hapus data?',
+                                        showCancelButton: true,
+                                        reverseButtons: false,
+                                      }).then((result) => {
+                                        if (result.value) {
+                                          this.form.submit();
+                                        }
+                                      })">Cabut berkas</button>
+                                    </form>
                                 </div>
                             </div>
                         </td>
@@ -70,5 +94,95 @@
     </div>
 </div>
 </div>
+
+<script src="https://unpkg.com/sweetalert@2"></script>
+
+<script>
+    // terima-button
+    document.querySelectorAll('.terima-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Ambil ID unik dari atribut data
+            var itemId = this.getAttribute('data-item-id');
+
+            // Tampilkan SweetAlert popup dengan ID unik
+            Swal.fire({
+                title: 'Kirim Email - Terima Peserta didik', 
+                html:
+                    '<form id="emailForm-' + itemId + '" action="{{ url('kirim-notifikasi-terima') }}" method="get">' +
+                    '@csrf' +
+                    '<input type="type" class="swal2-input" name="email">' + // Isi email sesuai data baris
+                    '</form>',
+                showCancelButton: true,
+                confirmButtonText: 'Kirim',
+                preConfirm: () => {
+                    // Otomatis submit formulir yang sesuai dengan tombol yang diklik
+                    document.querySelector('#emailForm-' + itemId).submit();
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Email sedang dikirim...', '', 'info');
+                }
+            });
+        });
+    });
+
+    // tolak
+    document.querySelectorAll('.tolak-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Ambil ID unik dari atribut data
+            var tolak = this.getAttribute('data-item-id');
+
+            // Tampilkan SweetAlert popup dengan ID unik
+            Swal.fire({
+                title: 'Kirim Email - Tolak Peserta didik',
+                html:
+                    '<form id="emailForm-' + tolak + '" action="{{ url('kirim-notifikasi-tolak') }}" method="get">' +
+                    '@csrf' +
+                    '<input type="type" class="swal2-input" name="email">' + // Isi email sesuai data baris
+                    '</form>',
+                showCancelButton: true,
+                confirmButtonText: 'Kirim',
+                preConfirm: () => {
+                    // Otomatis submit formulir yang sesuai dengan tombol yang diklik
+                    document.querySelector('#emailForm-' + tolak).submit();
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Email sedang dikirim...', '', 'info');
+                }
+            });
+        });
+    });
+
+    // tandai-button
+  document.querySelectorAll('.tandai-button').forEach(function(button) {
+    button.addEventListener('click', function() {
+      // Ambil ID unik dari atribut data
+      var itemId = this.getAttribute('data-item-id');
+
+      // Dapatkan baris yang sesuai dengan item yang dipilih
+      var baris = document.querySelector('tr[data-item-id="' + itemId + '"]');
+
+      // Periksa apakah baris sudah ditandai
+      if (baris.classList.contains('highlighted')) {
+        // Jika sudah ditandai, hapus penandaan
+        baris.classList.remove('highlighted');
+      } else {
+        // Jika belum ditandai, tambahkan penandaan
+        baris.classList.add('highlighted');
+      }
+
+      // Tampilkan pesan bahwa item telah ditandai atau tidak lagi
+      if (baris.classList.contains('highlighted')) {
+        Swal.fire('Item telah ditandai!', '', 'info');
+      } else {
+        Swal.fire('Item telah tidak ditandai!', '', 'info');
+      }
+    });
+  });
+</script>
+
+
+
 
 @endsection

@@ -51,58 +51,60 @@ class ppdbController extends Controller
     // Ijazah
 if ($request->hasFile('berkasIjazah')) {
     $fileIjazah = $request->file('berkasIjazah');
-    $namaFileIjazah = $fileIjazah->getClientOriginalName();  // Menggunakan nama asli file
+    $namaFileIjazah = $fileIjazah->getClientOriginalName() . '-' . time() . '.' . $fileIjazah->extension();;  // Menggunakan nama asli file
     $fileIjazah->move(public_path('berkasPPDB'), $namaFileIjazah);
 
     // Simpan path berkas ke tabel PPDB
-    $dataPPDB->berkasIjazah = "<a href='/berkasPPDB/$namaFileIjazah'>file ijasah ada disini</a>";
+    $dataPPDB->berkasIjazah = asset("../berkasPPDB/$namaFileIjazah");
 }
 
 // Foto
 if ($request->hasFile('berkasFoto')) {
     $fileFoto = $request->file('berkasFoto');
-    $namaFileFoto = $fileFoto->getClientOriginalName();  // Menggunakan nama asli file
+    $namaFileFoto = $fileFoto->getClientOriginalName() . '-' . time() . '.' . $fileFoto->extension();  // Menggunakan nama asli file
     $fileFoto->move(public_path('berkasPPDB'), $namaFileFoto);
 
-    $dataPPDB->berkasFoto = 'berkasPPDB/' . $namaFileFoto;
-    $dataPPDB->berkasFoto = "<a href='/berkasPPDB/$namaFileFoto'>file foto ada disini</a>";
+    // $dataPPDB->berkasFoto = 'berkasPPDB/' . $namaFileFoto;
+    $dataPPDB->berkasFoto = asset("../berkasPPDB/$namaFileFoto");
     
 }
 
 // Prestasi
 if ($request->hasFile('berkasPrestasi')) {
     $filePrestasi = $request->file('berkasPrestasi');
-    $namaFilePrestasi = $filePrestasi->getClientOriginalName();  // Menggunakan nama asli file
+    // $namaFilePrestasi = $filePrestasi->getClientOriginalName();  // Menggunakan nama asli file
+    $namaFilePrestasi = $filePrestasi->getClientOriginalName() . '-' . time() . '.' . $filePrestasi->extension();;  // Menggunakan nama asli file
     $filePrestasi->move(public_path('berkasPPDB'), $namaFilePrestasi);
 
-    $dataPPDB->berkasPrestasi = "<a href='/berkasPPDB/$namaFilePrestasi'>file prestasi ada disini</a>";
+    $dataPPDB->berkasPrestasi = asset("../berkasPPDB/$namaFilePrestasi");
 }
 
     // KK
     if ($request->hasFile('berkasKK')) {
         $fileKK = $request->file('berkasKK');
-        $namaFileKK = $fileKK->getClientOriginalName();  // Menggunakan nama asli file
+        // Menggunakan nama asli file dan waktu upload
+        $namaFileKK = $fileKK->getClientOriginalName() . '-' . time() . '.' . $fileKK->extension();
         $fileKK->move(public_path('berkasPPDB'), $namaFileKK);
 
-        $dataPPDB->berkasKK = "<a href='/berkasPPDB/$namaFileKK'>file KK ada disini</a>";
+        $dataPPDB->berkasKK = asset("../berkasPPDB/$namaFileKK");
     }
     
     // KTP Orang Tua
     if ($request->hasFile('berkasKTPOrangTua')) {
         $fileKTPOrangTua = $request->file('berkasKTPOrangTua');
-        $namaFileKTPOrangTua = $fileKTPOrangTua->getClientOriginalName();  // Menggunakan nama asli file
+        $namaFileKTPOrangTua = $fileKTPOrangTua->getClientOriginalName() . '-' . time() . '.' . $fileKTPOrangTua->extension();;  // Menggunakan nama asli file
         $fileKTPOrangTua->move(public_path('berkasPPDB'), $namaFileKTPOrangTua);
         
-        $dataPPDB->berkasKTPOrangTua = "<a href='/berkasPPDB/$namaFileKTPOrangTua'>file KK ada disini</a>";
+        $dataPPDB->berkasKTPOrangTua = asset("../berkasPPDB/$namaFileKTPOrangTua");
     }
 
     // Simpan data ke database
     $dataPPDB->save();
 
     // Set notifikasi flash jika berkas berhasil diunggah
-    $request->session()->flash('success', 'Berkas berhasil diunggah.');
+    $request->session()->flash('success', 'Berkas berhasil diunggah cek email secara berkala.');
 
-    return redirect('/PPDB')->with('success', 'Berkas berhasil diunggah.');
+    return redirect('/PPDB')->with('success', 'Berkas berhasil diunggah cek email secara berkala.');
 }
 
 

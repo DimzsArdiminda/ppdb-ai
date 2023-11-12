@@ -10,16 +10,17 @@
                     <div class="text-center">
                         <h4>Selamat Datang</h4>
                         <small>Silahkan masukkan data diri Anda</small>
-                        <br><a href="{{ url('/') }}" class="btn btn-info">kembali ke awal</a>
+                        <br><a href="{{ url('/') }}"  class="btn btn-info">kembali ke awal</a>
                     </div>
                     <div class="card bg-transparent mx-auto mt-3" style="width: 30rem">
                         <div class="container">
                             <div class="container">
-                                <form method="POST" class="mb-4 mt-5" onsubmit="togglePassword();">
+                                <form method="POST" class="mb-4 mt-5" action="{{ url('/proses-login') }}" onsubmit="togglePassword();">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Enter email">
+                                            aria-describedby="emailHelp" placeholder="Enter email" name="email">
                                         <small id="emailHelp" class="form-text text-muted">We'll never share your email
                                             with anyone else.</small>
                                     </div>
