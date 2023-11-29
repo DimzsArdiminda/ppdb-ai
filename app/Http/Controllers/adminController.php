@@ -31,7 +31,7 @@ class adminController extends Controller
 
         // Set notifikasi flash kepada user
         $request->session()->flash('success', 'Email ke ' . $alamatEmail . ' berhasil dikirim - penerimaan');
-        return redirect('admin/daftar-ppdb');
+        return redirect('/admin/daftar-ppdb');
 
     }
 
@@ -46,7 +46,7 @@ class adminController extends Controller
 
         // Set notifikasi flash kepada user
         $request->session()->flash('success ', 'Email ke ' . $alamatEmail . ' berhasil dikirim - penolakan');
-        return redirect('admin/daftar-ppdb');
+        return redirect('/admin/daftar-ppdb');
 
     }
 

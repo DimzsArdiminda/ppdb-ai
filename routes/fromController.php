@@ -15,7 +15,7 @@ route::post('/kirim-data-user-baru',[formUserController::class, 'PendaftranUserB
 
 
 // upload file
-route::post('/upload-file',[ppdbController::class, 'uploadFile'])->middleware('role:penngguna');
+route::post('/upload-file',[ppdbController::class, 'uploadFile'])->middleware('role:pengguna');
 
 // halaman upload file
 route::get('/PPDB/pengisian-berkas',[ppdbController::class, 'halamanFileUpload'])->middleware('role:pengguna');
@@ -53,6 +53,6 @@ Route::post('/proses-login',[formUserController::class, 'AuthSession']);
 Route::post('/daftar-akun',[formUserController::class, 'PendaftranUserBaru'])->middleware('role:pengguna');
 
 // logout
-Route::get('/proses-logout',[formUserController::class, 'logout'])->name('proses-logout')->middleware('role:pengguna');
+Route::get('/proses-logout',[formUserController::class, 'logout'])->middleware('role:pengguna');
 Route::get('/admin-keluar',[formUserController::class, 'logout'])->name('proses-logout')->middleware('role:admin');
 

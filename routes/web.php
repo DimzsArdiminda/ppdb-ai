@@ -25,7 +25,7 @@ Route::get('/', function () {
 // halaman dashboard
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
-})->name('dashboard');
+})->name('dashboard')->middleware('role:pengguna');
 
 // halaman sejarah
 Route::get('sejarah', function () {
